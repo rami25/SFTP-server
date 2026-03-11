@@ -1,0 +1,15 @@
+C:\SFTPPortal\src\SFTPPortal.Application\bin\Debug\net8.0\SFTPPortal.Application.deps.json
+C:\SFTPPortal\src\SFTPPortal.Application\bin\Debug\net8.0\SFTPPortal.Application.dll
+C:\SFTPPortal\src\SFTPPortal.Application\bin\Debug\net8.0\SFTPPortal.Application.pdb
+C:\SFTPPortal\src\SFTPPortal.Application\bin\Debug\net8.0\SFTPPortal.Domain.dll
+C:\SFTPPortal\src\SFTPPortal.Application\bin\Debug\net8.0\SFTPPortal.Domain.pdb
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.csproj.AssemblyReference.cache
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.AssemblyInfoInputs.cache
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.AssemblyInfo.cs
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.csproj.CoreCompileInputs.cache
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPort.FBFFEE66.Up2Date
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.dll
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\refint\SFTPPortal.Application.dll
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.pdb
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\ref\SFTPPortal.Application.dll

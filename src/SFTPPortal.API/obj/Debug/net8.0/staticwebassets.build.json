@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4bwF1n1Ek8KVt63lbH1LY9AiTETzG6n46CI83w6ArNA=",
+  "Source": "SFTPPortal.API",
+  "BasePath": "_content/SFTPPortal.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

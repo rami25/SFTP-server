@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SFTPPortal.API.props" />
+</Project>

@@ -1,0 +1,11 @@
+C:\SFTPPortal\src\SFTPPortal.Domain\bin\Debug\net8.0\SFTPPortal.Domain.deps.json
+C:\SFTPPortal\src\SFTPPortal.Domain\bin\Debug\net8.0\SFTPPortal.Domain.dll
+C:\SFTPPortal\src\SFTPPortal.Domain\bin\Debug\net8.0\SFTPPortal.Domain.pdb
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.AssemblyInfoInputs.cache
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.AssemblyInfo.cs
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.csproj.CoreCompileInputs.cache
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.dll
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\refint\SFTPPortal.Domain.dll
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\SFTPPortal.Domain.pdb
+C:\SFTPPortal\src\SFTPPortal.Domain\obj\Debug\net8.0\ref\SFTPPortal.Domain.dll
