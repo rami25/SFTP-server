@@ -1,0 +1,52 @@
+# ── .NET ────────────────────────────────────────────────────
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+.vs/
+bin/
+obj/
+out/
+publish/
+
+# ── Database ─────────────────────────────────────────────────
+*.db
+*.db-shm
+*.db-wal
+
+# ── Sensitive config ─────────────────────────────────────────
+**/appsettings.Production.json
+**/appsettings.Local.json
+
+# ── Logs ─────────────────────────────────────────────────────
+logs/
+*.log
+stdout/
+
+# ── Angular ──────────────────────────────────────────────────
+sftp-portal-client/node_modules/
+sftp-portal-client/dist/
+sftp-portal-client/.angular/
+sftp-portal-client/.sass-cache/
+sftp-portal-client/coverage/
+
+# ── OS files ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── VS Code ──────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ── Rider / Visual Studio ────────────────────────────────────
+.idea/
+*.sln.iml
+
+# ── Test results ─────────────────────────────────────────────
+TestResults/
+*.trx
+*.coveragexml
