@@ -1,0 +1,75 @@
+<div class="file-list">
+
+  @if (files.length === 0) {
+    <div class="empty-state">
+      <mat-icon>folder_open</mat-icon>
+      <h3>No files found</h3>
+      <p>This folder is empty</p>
+    </div>
+  } @else {
+
+    <table mat-table [dataSource]="files" class="files-table">
+
+      <!-- Icon Column -->
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let file">
+          <mat-icon [style.color]="getFileIconColor(file.name)">
+            {{ getFileIcon(file.name) }}
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let file">
+          <span class="file-name">{{ file.name }}</span>
+          @if (file.name.endsWith('.pgp')) {
+            <mat-chip class="encrypted-chip">
+              <mat-icon>lock</mat-icon>
+              Encrypted
+            </mat-chip>
+          }
+        </td>
+      </ng-container>
+
+      <!-- Size Column -->
+      <ng-container matColumnDef="size">
+        <th mat-header-cell *matHeaderCellDef>Size</th>
+        <td mat-cell *matCellDef="let file">
+          <span class="file-size">{{ file.sizeFormatted }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Last Modified Column -->
+      <ng-container matColumnDef="lastModified">
+        <th mat-header-cell *matHeaderCellDef>Last Modified</th>
+        <td mat-cell *matCellDef="let file">
+          {{ file.lastModified | date:'dd MMM yyyy, HH:mm' }}
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let file">
+          @if (canDownload) {
+            <button mat-icon-button color="primary"
+                    (click)="onDownload(file)"
+                    matTooltip="Download {{ file.name }}">
+              <mat-icon>download</mat-icon>
+            </button>
+          }
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          class="file-row"></tr>
+
+    </table>
+
+  }
+
+</div>

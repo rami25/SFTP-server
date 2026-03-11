@@ -1,0 +1,70 @@
+.navbar {
+  background: linear-gradient(135deg, #1976d2, #1565c0) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 64px !important;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-btn { color: white !important; }
+
+.nav-logo {
+  font-size: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  color: #90caf9;
+}
+
+.nav-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.spacer { flex: 1; }
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.entity-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.user-btn {
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.user-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+
+  mat-icon { font-size: 32px; width: 32px; height: 32px; color: #1976d2; }
+
+  .menu-username { font-weight: 600; margin: 0; font-size: 14px; }
+  .menu-role { margin: 0; font-size: 12px; color: #888; }
+}

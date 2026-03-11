@@ -1,0 +1,32 @@
+<!-- Navbar -->
+<app-navbar (toggleSidebar)="onToggleSidebar()"></app-navbar>
+
+<!-- Sidebar -->
+<app-sidebar
+  [folders]="folders"
+  [isOpen]="isSidebarOpen"
+  [selectedFolder]="selectedFolder"
+  (folderSelected)="onFolderSelected($event)">
+</app-sidebar>
+
+<!-- Main Content -->
+<div class="main-content" [class.sidebar-open]="isSidebarOpen">
+
+  @if (isLoading) {
+    <div class="loading-container">
+      <mat-spinner diameter="48"></mat-spinner>
+      <p>Loading folders...</p>
+    </div>
+  } @else {
+    @if (selectedFolder) {
+      <app-file-browser [folder]="selectedFolder"></app-file-browser>
+    } @else {
+      <div class="welcome-container">
+        <mat-icon class="welcome-icon">cloud_upload</mat-icon>
+        <h2>Welcome to SFTP Portal</h2>
+        <p>Select a folder from the sidebar to get started</p>
+      </div>
+    }
+  }
+
+</div>

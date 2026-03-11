@@ -1,0 +1,93 @@
+<div class="upload-dialog">
+
+  <!-- Header -->
+  <h2 mat-dialog-title>
+    <mat-icon>upload_file</mat-icon>
+    Upload File
+  </h2>
+
+  <mat-dialog-content>
+
+    <!-- Folder info -->
+    <div class="folder-info">
+      <mat-icon>folder</mat-icon>
+      <span>Uploading to: <strong>{{ data.folder.name }}</strong></span>
+    </div>
+
+    <!-- Drop Zone -->
+    <div class="drop-zone"
+         [class.drag-over]="isDragOver"
+         [class.has-file]="selectedFile"
+         (dragover)="onDragOver($event)"
+         (dragleave)="onDragLeave()"
+         (drop)="onDrop($event)">
+
+      @if (!selectedFile) {
+        <div class="drop-placeholder">
+          <mat-icon>cloud_upload</mat-icon>
+          <p>Drag & drop your file here</p>
+          <span>or</span>
+          <label class="browse-btn">
+            <input type="file" hidden (change)="onFileSelected($event)" accept=".csv">
+            <mat-icon>folder_open</mat-icon>
+            Browse Files
+          </label>
+          <p class="hint">Only .csv files are accepted</p>
+        </div>
+      } @else {
+        <div class="file-preview">
+          <mat-icon class="file-icon">table_chart</mat-icon>
+          <div class="file-details">
+            <p class="file-name">{{ selectedFile.name }}</p>
+            <p class="file-size">{{ getFileSize(selectedFile.size) }}</p>
+          </div>
+          <button mat-icon-button (click)="selectedFile = null" [disabled]="isUploading">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      }
+
+    </div>
+
+    <!-- Progress Bar -->
+    @if (isUploading) {
+      <div class="progress-section">
+        <mat-progress-bar mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+        <span class="progress-text">{{ uploadProgress }}%</span>
+      </div>
+    }
+
+    <!-- Error Message -->
+    @if (errorMessage) {
+      <div class="error-message">
+        <mat-icon>error</mat-icon>
+        <span>{{ errorMessage }}</span>
+      </div>
+    }
+
+    <!-- Naming Convention hint -->
+    <div class="naming-hint">
+      <mat-icon>info</mat-icon>
+      <div>
+        <p><strong>File naming convention:</strong></p>
+        <code>CLIENT_ENV_IN_ISO_SEQ_NAME_DDMMYYYY.csv</code>
+        <p class="example">Example: ALIQ_101k8wp_IN_EGY_01_DemoFile_22062020.csv</p>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+
+  <!-- Actions -->
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onCancel()" [disabled]="isUploading">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary"
+            (click)="onUpload()"
+            [disabled]="!selectedFile || isUploading">
+      <mat-icon>upload</mat-icon>
+      {{ isUploading ? 'Uploading...' : 'Upload' }}
+    </button>
+  </mat-dialog-actions>
+
+</div>

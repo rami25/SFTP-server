@@ -1,0 +1,68 @@
+<div class="login-container">
+  <mat-card class="login-card">
+
+    <!-- Header -->
+    <mat-card-header class="login-header">
+      <div class="logo-section">
+        <mat-icon class="logo-icon">cloud_upload</mat-icon>
+        <h1 class="app-title">SFTP Portal</h1>
+        <p class="app-subtitle">Secure File Transfer Platform</p>
+      </div>
+    </mat-card-header>
+
+    <!-- Form -->
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" class="full-width mt-16">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username"
+                 placeholder="Firstname.Lastname"
+                 autocomplete="username" />
+          <mat-icon matPrefix>person</mat-icon>
+          @if (loginForm.get('username')?.hasError('required') &&
+               loginForm.get('username')?.touched) {
+            <mat-error>Username is required</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width mt-16">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password"
+                 [type]="hidePassword ? 'password' : 'text'"
+                 autocomplete="current-password" />
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-icon-button matSuffix type="button"
+                  (click)="hidePassword = !hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          @if (loginForm.get('password')?.hasError('required') &&
+               loginForm.get('password')?.touched) {
+            <mat-error>Password is required</mat-error>
+          }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary"
+                type="submit"
+                class="full-width mt-24 login-btn"
+                [disabled]="loginForm.invalid || isLoading">
+          @if (isLoading) {
+            <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+            <ng-container>
+                <mat-icon>login</mat-icon>
+                Sign In
+            </ng-container>
+          }
+        </button>
+
+      </form>
+    </mat-card-content>
+
+    <!-- Footer -->
+    <mat-card-footer class="login-footer">
+      <p>AMEI SFTP Web Service &copy; {{ currentYear }}</p>
+    </mat-card-footer>
+
+  </mat-card>
+</div>

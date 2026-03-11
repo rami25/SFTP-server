@@ -1,0 +1,54 @@
+<div class="file-browser">
+
+  <!-- Header -->
+  <div class="browser-header">
+    <div class="header-left">
+      <mat-icon class="folder-icon">{{ getFolderIcon(folder?.type || '') }}</mat-icon>
+      <div>
+        <h2 class="folder-name">{{ folder?.name }}</h2>
+        <span class="folder-path">{{ folder?.remotePath }}</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- Upload button - only for Demographic folders -->
+      @if (folder?.canUpload) {
+        <button mat-raised-button color="primary" (click)="onUpload()">
+          <mat-icon>upload</mat-icon>
+          Upload File
+        </button>
+      }
+
+      <!-- Refresh button -->
+      <button mat-stroked-button (click)="onRefresh()" matTooltip="Refresh">
+        <mat-icon>refresh</mat-icon>
+        Refresh
+      </button>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span class="active">{{ folder?.name }}</span>
+  </div>
+
+  <!-- Content -->
+  <div class="browser-content">
+    @if (isLoading) {
+      <div class="loading-container">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading files...</p>
+      </div>
+    } @else {
+      <app-file-list
+        [files]="files"
+        [canDownload]="folder?.canDownload ?? false"
+        (downloadFile)="onDownload($event)">
+      </app-file-list>
+    }
+  </div>
+
+</div>

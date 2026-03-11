@@ -1,0 +1,43 @@
+<mat-toolbar class="navbar">
+
+  <!-- Left: Menu toggle + Logo -->
+  <div class="navbar-left">
+    <button mat-icon-button (click)="onToggleSidebar()" class="menu-btn">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon class="nav-logo">cloud_upload</mat-icon>
+    <span class="nav-title">SFTP Portal</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- Right: User menu -->
+  <div class="navbar-right">
+    <span class="entity-badge">
+      <mat-icon>business</mat-icon>
+      {{ authService.getUserEntity() }}
+    </span>
+
+    <button mat-button [matMenuTriggerFor]="userMenu" class="user-btn">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ authService.getCurrentUser()?.username }}</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <div class="user-menu-header">
+        <mat-icon>person</mat-icon>
+        <div>
+          <p class="menu-username">{{ authService.getCurrentUser()?.username }}</p>
+          <p class="menu-role">{{ authService.getCurrentUser()?.role }}</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sign Out</span>
+      </button>
+    </mat-menu>
+  </div>
+
+</mat-toolbar>

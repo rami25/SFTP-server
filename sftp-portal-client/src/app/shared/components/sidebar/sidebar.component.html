@@ -1,0 +1,48 @@
+<div class="sidebar" [class.sidebar-open]="isOpen" [class.sidebar-closed]="!isOpen">
+
+  <!-- Header -->
+  <div class="sidebar-header">
+    <mat-icon>folder_open</mat-icon>
+    <span>My Storage</span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <!-- Folder List -->
+  <mat-nav-list class="folder-list">
+    <h3 class="section-label">Home</h3>
+
+    @for (folder of folders; track folder.name) {
+      <mat-list-item
+        class="folder-item"
+        [class.active]="selectedFolder?.name === folder.name"
+        (click)="onFolderClick(folder)">
+
+        <mat-icon matListItemIcon
+          [style.color]="getFolderColor(folder.type)">
+          {{ getFolderIcon(folder.type) }}
+        </mat-icon>
+
+        <span matListItemTitle>{{ folder.name }}</span>
+
+        <div matListItemMeta class="folder-actions">
+          @if (folder.canUpload) {
+            <mat-icon class="action-icon upload" title="Upload">upload</mat-icon>
+          }
+          @if (folder.canDownload) {
+            <mat-icon class="action-icon download" title="Download">download</mat-icon>
+          }
+        </div>
+
+      </mat-list-item>
+    }
+
+    @if (folders.length === 0) {
+      <div class="empty-folders">
+        <mat-icon>folder_off</mat-icon>
+        <p>No folders available</p>
+      </div>
+    }
+  </mat-nav-list>
+
+</div>

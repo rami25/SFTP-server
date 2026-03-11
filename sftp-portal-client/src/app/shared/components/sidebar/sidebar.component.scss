@@ -1,0 +1,75 @@
+.sidebar {
+  width: 260px;
+  min-height: calc(100vh - 64px);
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  z-index: 900;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+}
+
+.sidebar-closed {
+  width: 0;
+  transform: translateX(-260px);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+  background: #fafafa;
+
+  mat-icon { color: #1976d2; }
+}
+
+.section-label {
+  padding: 8px 16px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0;
+}
+
+.folder-item {
+  cursor: pointer;
+  border-radius: 8px !important;
+  margin: 2px 8px !important;
+  transition: background 0.2s;
+
+  &:hover { background: #e3f2fd !important; }
+  &.active { background: #bbdefb !important; }
+}
+
+.folder-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.action-icon {
+  font-size: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+
+  &.upload { color: #1976d2; }
+  &.download { color: #388e3c; }
+}
+
+.empty-folders {
+  text-align: center;
+  padding: 32px 16px;
+  color: #bbb;
+
+  mat-icon { font-size: 40px; width: 40px; height: 40px; }
+  p { font-size: 13px; margin-top: 8px; }
+}
