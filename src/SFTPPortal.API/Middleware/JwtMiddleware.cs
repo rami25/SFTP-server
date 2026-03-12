@@ -1,25 +1,16 @@
 namespace SFTPPortal.API.Middleware;
-
 using SFTPPortal.Domain.Interfaces;
-
-public class JwtMiddleware
-{
+public class JwtMiddleware {
     private readonly RequestDelegate _next;
-
-    public JwtMiddleware(RequestDelegate next)
-    {
+    public JwtMiddleware(RequestDelegate next) {
         _next = next;
     }
 
-    public async Task InvokeAsync(HttpContext context, IAuthService authService)
-    {
-        // Extract token from Authorization header
-        var token = context.Request.Headers["Authorization"]
+    public async Task InvokeAsync(HttpContext context, IAuthService authService) {
+        var token = context.Request.Headers["Authorization"] // get token
             .FirstOrDefault()?.Split(" ").Last();
 
-        if (token != null)
-        {
-            // Attach user info to context if token is valid
+        if (token != null) {
             if (authService.ValidateToken(token))
             {
                 context.Items["IsAuthenticated"] = true;

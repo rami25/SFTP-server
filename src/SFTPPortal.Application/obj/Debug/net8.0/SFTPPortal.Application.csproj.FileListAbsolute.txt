@@ -13,3 +13,4 @@ C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application
 C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\refint\SFTPPortal.Application.dll
 C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.pdb
 C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\ref\SFTPPortal.Application.dll
+C:\SFTPPortal\src\SFTPPortal.Application\obj\Debug\net8.0\SFTPPortal.Application.sourcelink.json

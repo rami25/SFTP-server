@@ -1,26 +1,21 @@
 namespace SFTPPortal.API.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using SFTPPortal.Application.DTOs;
 using SFTPPortal.Application.UseCases.Auth;
 
 [ApiController]
 [Route("api/auth")]
-public class AuthController : ControllerBase
-{
+public class AuthController : ControllerBase {
     private readonly LoginUseCase _loginUseCase;
     private readonly ILogger<AuthController> _logger;
 
-    public AuthController(LoginUseCase loginUseCase, ILogger<AuthController> logger)
-    {
+    public AuthController(LoginUseCase loginUseCase, ILogger<AuthController> logger) {
         _loginUseCase = loginUseCase;
         _logger = logger;
     }
 
-    // POST api/auth/login
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
-    {
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto request) {
         if (string.IsNullOrWhiteSpace(request.Username) ||
             string.IsNullOrWhiteSpace(request.Password))
         {
@@ -39,7 +34,6 @@ public class AuthController : ControllerBase
         return Ok(result);
     }
 
-    // POST api/auth/logout
     [HttpPost("logout")]
     public IActionResult Logout()
     {

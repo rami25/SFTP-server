@@ -1,7 +1,5 @@
 namespace SFTPPortal.Application.DTOs;
-
-public class FileItemDto
-{
+public class FileItemDto {
     public string Name { get; set; } = string.Empty;
     public long Size { get; set; }
     public string SizeFormatted { get; set; } = string.Empty; // e.g. "1.2 MB"

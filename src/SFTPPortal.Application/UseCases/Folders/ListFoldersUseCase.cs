@@ -1,16 +1,10 @@
 namespace SFTPPortal.Application.UseCases.Folders;
-
 using SFTPPortal.Application.DTOs;
 using SFTPPortal.Domain.Enums;
-
-public class ListFoldersUseCase
-{
-    public List<FolderItemDto> Execute(string entity)
-    {
-        var folders = new List<FolderItemDto>
-        {
-            new FolderItemDto
-            {
+public class ListFoldersUseCase {
+    public List<FolderItemDto> Execute(string entity) {
+        var folders = new List<FolderItemDto> { // najem nbadel ba3ed
+            new FolderItemDto {
                 Name = $"Demographic {entity}",
                 Type = FolderType.Demographic.ToString(),
                 Entity = entity,
@@ -18,8 +12,7 @@ public class ListFoldersUseCase
                 CanUpload = true,
                 CanDownload = false
             },
-            new FolderItemDto
-            {
+            new FolderItemDto {
                 Name = $"Bank {entity}",
                 Type = FolderType.Bank.ToString(),
                 Entity = entity,
@@ -29,11 +22,9 @@ public class ListFoldersUseCase
             }
         };
 
-        // GL folder only available for Morocco
-        if (entity.Equals("Morocco", StringComparison.OrdinalIgnoreCase))
-        {
-            folders.Add(new FolderItemDto
-            {
+        // valable l marocco as exemple
+        if (entity.Equals("Morocco", StringComparison.OrdinalIgnoreCase)) {
+            folders.Add(new FolderItemDto {
                 Name = $"GL {entity}",
                 Type = FolderType.GL.ToString(),
                 Entity = entity,
@@ -42,7 +33,6 @@ public class ListFoldersUseCase
                 CanDownload = true
             });
         }
-
         return folders;
     }
 }

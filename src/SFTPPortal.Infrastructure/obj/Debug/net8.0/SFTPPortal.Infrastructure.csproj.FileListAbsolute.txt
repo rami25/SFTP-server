@@ -17,3 +17,4 @@ C:\SFTPPortal\src\SFTPPortal.Infrastructure\obj\Debug\net8.0\SFTPPortal.Infrastr
 C:\SFTPPortal\src\SFTPPortal.Infrastructure\obj\Debug\net8.0\ref\SFTPPortal.Infrastructure.dll
 C:\SFTPPortal\src\SFTPPortal.Infrastructure\bin\Debug\net8.0\SFTPPortal.Infrastructure.runtimeconfig.json
 C:\SFTPPortal\src\SFTPPortal.Infrastructure\obj\Debug\net8.0\SFTPPortal.Infrastructure.genruntimeconfig.cache
+C:\SFTPPortal\src\SFTPPortal.Infrastructure\obj\Debug\net8.0\SFTPPortal.Infrastructure.sourcelink.json

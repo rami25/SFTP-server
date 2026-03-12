@@ -68,9 +68,7 @@ app.UseAuthorization();
 app.UseMiddleware<JwtMiddleware>();
 app.MapControllers();
 
-// ── Seed Database ───────────────────────────────────────────
-using (var scope = app.Services.CreateScope())
-{
+using (var scope = app.Services.CreateScope()) { // seed database
     var context = scope.ServiceProvider
         .GetRequiredService<SFTPPortal.Infrastructure.Persistence.AppDbContext>();
     var authService = scope.ServiceProvider

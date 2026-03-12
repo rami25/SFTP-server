@@ -1,7 +1,5 @@
 namespace SFTPPortal.Domain.Interfaces;
-
-public interface IFileNamingService
-{
+public interface IFileNamingService {
     bool IsValidFileName(string fileName);
     string GetRejectionReason(string fileName);
 }

@@ -100,3 +100,4 @@ C:\SFTPPortal\tests\SFTPPortal.Domain.Tests\obj\Debug\net8.0\refint\SFTPPortal.D
 C:\SFTPPortal\tests\SFTPPortal.Domain.Tests\obj\Debug\net8.0\SFTPPortal.Domain.Tests.pdb
 C:\SFTPPortal\tests\SFTPPortal.Domain.Tests\obj\Debug\net8.0\SFTPPortal.Domain.Tests.genruntimeconfig.cache
 C:\SFTPPortal\tests\SFTPPortal.Domain.Tests\obj\Debug\net8.0\ref\SFTPPortal.Domain.Tests.dll
+C:\SFTPPortal\tests\SFTPPortal.Domain.Tests\obj\Debug\net8.0\SFTPPortal.Domain.Tests.sourcelink.json

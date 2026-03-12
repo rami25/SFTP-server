@@ -1,28 +1,21 @@
 namespace SFTPPortal.Application.Validators;
-
 using SFTPPortal.Domain.Interfaces;
 using System.Text.RegularExpressions;
-
-public class FileNameValidator : IFileNamingService
-{
-    // Pattern based on document:
+public class FileNameValidator : IFileNamingService {
     // CCCC_EEEEEEE_IN_ISO_SS_FFFFFFFFFFFFFFFFFFFF_DDMMYYYY.csv
-    // Example: ALIQ_101k8wp_IN_EGY_01_DemoFile_22062020.csv
+    // exp: ALIQ_101k8wp_IN_EGY_01_DemoFile_22062020.csv
     private static readonly Regex _pattern = new Regex(
         @"^[A-Z]{2,4}_[A-Za-z0-9]+_IN_[A-Z]{3}_\d{2}_[A-Za-z0-9]+_\d{8}\.csv$",
         RegexOptions.Compiled
     );
 
-    public bool IsValidFileName(string fileName)
-    {
+    public bool IsValidFileName(string fileName) {
         if (string.IsNullOrWhiteSpace(fileName))
             return false;
-
         return _pattern.IsMatch(fileName);
     }
 
-    public string GetRejectionReason(string fileName)
-    {
+    public string GetRejectionReason(string fileName) {
         if (string.IsNullOrWhiteSpace(fileName))
             return "File name cannot be empty.";
 

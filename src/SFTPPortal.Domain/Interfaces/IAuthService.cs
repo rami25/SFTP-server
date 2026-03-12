@@ -1,9 +1,6 @@
 namespace SFTPPortal.Domain.Interfaces;
-
 using SFTPPortal.Domain.Entities;
-
-public interface IAuthService
-{
+public interface IAuthService {
     string GenerateToken(User user);
     bool ValidateToken(string token);
     string HashPassword(string password);

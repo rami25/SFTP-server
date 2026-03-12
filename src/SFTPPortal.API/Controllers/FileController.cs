@@ -1,12 +1,10 @@
 namespace SFTPPortal.API.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using SFTPPortal.Application.UseCases.Files;
 
 [ApiController]
 [Route("api/files")]
-public class FileController : ControllerBase
-{
+public class FileController : ControllerBase {
     private readonly ListFilesUseCase _listFilesUseCase;
     private readonly UploadFileUseCase _uploadFileUseCase;
     private readonly DownloadFileUseCase _downloadFileUseCase;
@@ -24,7 +22,7 @@ public class FileController : ControllerBase
         _logger = logger;
     }
 
-    // GET api/files?remotePath=/Demographic ALMENA
+    // eg. GET api/files?remotePath=/Demographic ALMENA
     [HttpGet]
     public async Task<IActionResult> ListFiles([FromQuery] string remotePath)
     {
@@ -35,7 +33,7 @@ public class FileController : ControllerBase
         return Ok(files);
     }
 
-    // POST api/files/upload?remotePath=/Demographic ALMENA
+    // eg. POST api/files/upload?remotePath=/Demographic ALMENA
     [HttpPost("upload")]
     public async Task<IActionResult> Upload(
         [FromQuery] string remotePath,
@@ -60,7 +58,7 @@ public class FileController : ControllerBase
         return Ok(result);
     }
 
-    // GET api/files/download?remotePath=/Bank ALMENA&fileName=Sample.pgp
+    // eg. GET api/files/download?remotePath=/Bank ALMENA&fileName=Sample.pgp
     [HttpGet("download")]
     public async Task<IActionResult> Download(
         [FromQuery] string remotePath,

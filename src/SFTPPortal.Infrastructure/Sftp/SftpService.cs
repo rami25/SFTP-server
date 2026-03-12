@@ -1,28 +1,21 @@
 namespace SFTPPortal.Infrastructure.Sftp;
-
 using Renci.SshNet;
 using SFTPPortal.Domain.Entities;
 using SFTPPortal.Domain.Interfaces;
-
-public class SftpService : ISftpService, IDisposable
-{
+public class SftpService : ISftpService, IDisposable {
     private readonly SftpClient _client;
-    private readonly string _rootPath = "/SFTPRoot";
+    private readonly string _rootPath = "/SFTPRoot"; // najem nbadel ba3ed
 
-    public SftpService(string host, int port, string username, string password)
-    {
+    public SftpService(string host, int port, string username, string password) {
         _client = new SftpClient(host, port, username, password);
     }
 
-    // ── Connection helpers ──────────────────────────────────────────
-    private void EnsureConnected()
-    {
+    private void EnsureConnected() { // connection helpers
         if (!_client.IsConnected)
             _client.Connect();
     }
 
-    public async Task<bool> TestConnectionAsync()
-    {
+    public async Task<bool> TestConnectionAsync() {
         return await Task.Run(() =>
         {
             try
@@ -37,9 +30,7 @@ public class SftpService : ISftpService, IDisposable
         });
     }
 
-    // ── List files ──────────────────────────────────────────────────
-    public async Task<List<FileItem>> ListFilesAsync(string remotePath)
-    {
+    public async Task<List<FileItem>> ListFilesAsync(string remotePath) { // list files
         return await Task.Run(() =>
         {
             EnsureConnected();
@@ -59,9 +50,7 @@ public class SftpService : ISftpService, IDisposable
         });
     }
 
-    // ── Upload file ─────────────────────────────────────────────────
-    public async Task UploadFileAsync(string remotePath, Stream fileStream, string fileName)
-    {
+    public async Task UploadFileAsync(string remotePath, Stream fileStream, string fileName) { // upload file
         await Task.Run(() =>
         {
             EnsureConnected();
@@ -70,9 +59,7 @@ public class SftpService : ISftpService, IDisposable
         });
     }
 
-    // ── Download file ───────────────────────────────────────────────
-    public async Task<Stream> DownloadFileAsync(string remotePath, string fileName)
-    {
+    public async Task<Stream> DownloadFileAsync(string remotePath, string fileName) { // download file
         return await Task.Run(() =>
         {
             EnsureConnected();
@@ -83,10 +70,7 @@ public class SftpService : ISftpService, IDisposable
             return (Stream)memoryStream;
         });
     }
-
-    // ── Cleanup ─────────────────────────────────────────────────────
-    public void Dispose()
-    {
+    public void Dispose() { // cleanup 
         if (_client.IsConnected)
             _client.Disconnect();
         _client.Dispose();

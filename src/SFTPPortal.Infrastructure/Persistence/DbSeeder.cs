@@ -1,45 +1,29 @@
 namespace SFTPPortal.Infrastructure.Persistence;
-
 using Microsoft.EntityFrameworkCore;
 using SFTPPortal.Domain.Entities;
 using SFTPPortal.Domain.Interfaces;
 
-public static class DbSeeder
-{
-    public static async Task SeedAsync(AppDbContext context, IAuthService authService)
-    {
-        // Make sure database is created
-        await context.Database.MigrateAsync();
+public static class DbSeeder {
+    public static async Task SeedAsync(AppDbContext context, IAuthService authService) {
+        await context.Database.MigrateAsync(); // make sure database is created
 
-        // Only seed if no users exist
-        if (await context.Users.AnyAsync())
+        if (await context.Users.AnyAsync()) // only seed if no users exist
             return;
 
-        var users = new List<User>
-        {
-            new User
-            {
+        var users = new List<User> {
+            new User {
                 Username = "rami",
                 PasswordHash = authService.HashPassword("rami123"),
-                Entity = "ALMENA",
+                Entity = "Tunisia",
                 Role = "Admin",
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow
-            }//,
-            // new User
-            // {
-            //     Username = "john.doe",
-            //     PasswordHash = authService.HashPassword("User@123"),
-            //     Entity = "Egypt",
-            //     Role = "User",
-            //     IsActive = true,
-            //     CreatedAt = DateTime.UtcNow
-            // }
+            }
         };
 
         await context.Users.AddRangeAsync(users);
         await context.SaveChangesAsync();
 
-        Console.WriteLine("✅ Database seeded successfully.");
+        Console.WriteLine("Database seeded successfully.");
     }
 }
